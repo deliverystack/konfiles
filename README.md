@@ -129,11 +129,11 @@ To this:
 }
 ```
 
-The process_entries()  function generates additional files from the raw .json files. Specifically, it flattens the entry to a file named after the entry. Interestingly, if that value contains slash (/) characters, this constructs a file path, which is similar to the following URL logic. If the URL field of the entry contains a value, then the script duplicates the flattened entry to a file at that path. Because the item with URL / would correspond to the file /.json, it uses /home.json in this case.
+The `process_entries()` function generates additional files from the raw `.json` files. Specifically, it flattens the entry to a file named after the entry. Interestingly, if that value contains slash (`/`) characters, this constructs a file path, which is similar to the following URL logic. If the URL field of the entry contains a value, then the script duplicates the flattened entry to a file at that path. Because the item with URL `/` would correspond to the file `/.json`, it uses `/home.json` in this case.
 
 ### Script Body
 
--Creates any required directories.
--Stores the content type definitions.
--Stores all entries as files.
+- Creates any required directories.
+- Stores the content type definitions.
+- Stores all entries as files.
 
