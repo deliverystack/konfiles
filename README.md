@@ -1,5 +1,6 @@
-# konfiles: Bash Script to Download Kontent.ai Content Type Definitions and Entries as JSON Files
-This clog describes a prototype Bourne shell script that attempts to download all content type definitions and entries from the Kontent.ai headless content management system. You can use a similar technique with any CMS.
+# konfiles: Bash Shell Script to Download Kontent.ai Content Type Definitions and Entries as JSON Files
+
+This clog describes a prototype Bash shell script that attempts to download all content type definitions and entries from the Kontent.ai headless content management system. You can use a similar technique with any CMS.
 
 For context, see:
 
