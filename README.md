@@ -20,8 +20,6 @@ Typically, you call the API to retrieve the first page, which indicates the size
 
 ## Kontent.ai Download Implementation
 
-//TODO: link
-
 I have found Bash shell scripts to be efficient for prototyping, although jq syntax is a bit cumbersome (though efficient). If you think about it, the command line exposes a sort of API that provides very high-level functionality, such as grep with filename globbing, but also supports minute operations such as `sed`. If I understand correctly, spawning a process on the command line is a relatively expensive operation in machine resources, so shell may not be the most efficient mechanism available. 
 
 ## The Script
