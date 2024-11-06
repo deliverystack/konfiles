@@ -27,7 +27,7 @@ download_entries_for_content_type() {
             entry_file="$ENTRIES_DIR/$content_type/$entry_id.json"
             mkdir -p "$(dirname "$entry_file")"
             echo "$entry" > "$entry_file"
-            echo "$0 : Saved original entry: $entry_file"
+            echo -e "\e[32m$0\e[0m : Saved original entry: $entry_file"
         done
 
         skip=$((skip + page_size))
@@ -55,7 +55,7 @@ flatten_entry() {
        + ($elements | to_entries | map({(.key): .value.value}) | add)' > "$output_file"
     codename=`echo "$entry" | jq -r '.system.codename' | tr ' ' '_' | tr '[:upper:]' '[:lower:]'`
     cp $output_file "$ENTRIES_DIR/$codename.json"
-    echo "$0 : Flattened entry saved to: $output_file and $ENTRIES_DIR/$codename.json"
+    echo -e "\e[32m$0\e[0m : Flattened entry saved to: $output_file and $ENTRIES_DIR/$codename.json"
 }
 
 process_entries() {
@@ -76,7 +76,7 @@ process_entries() {
         flatten_entry "$entry" "$output_file"
         output_file_by_id="$FLATTENED_ENTRIES_DIR/$content_type/$entry_id.json"
         cp "$output_file" "$output_file_by_id"
-        echo "$0 : Duplicated flattened entry to ID structure: $output_file_by_id"
+        echo -e "\e[32m$0\e[0m : Duplicated flattened entry to ID structure: $output_file_by_id"
         url=$(echo "$entry" | jq -r '.elements.pagecontent__url.value')
 
         if [[ -n "$url" && "$url" != "null" ]]; then
@@ -89,7 +89,7 @@ process_entries() {
             url_dir="$URL_BASE_DIR/$url_path"
             mkdir -p "$(dirname "$url_dir")"
             cp "$output_file" "$url_dir.json"
-            echo "$0 : Copied flattened entry to URL structure: $url_dir.json"
+            echo -e "\e[32m$0\e[0m : Copied flattened entry to URL structure: $url_dir.json"
         fi
     done
 }
@@ -101,17 +101,17 @@ content_types=()
 while read -r type; do
     codename=$(echo "$type" | jq -r '.system.codename')
     echo "$type" > "$CONTENT_TYPES_DIR/$codename.json"
-    echo "$0 : Saved content type: $CONTENT_TYPES_DIR/$codename.json"
+    echo -e "\e[32m$0\e[0m : Saved content type: $CONTENT_TYPES_DIR/$codename.json"
     content_types+=("$codename")
 done < <(curl -s -H "$CONTENT_TYPE_HEADER" "$BASE_DELIVERY_API_URL/$ENVIRONMENT_ID/types" | jq -c '.types[]')
 
 # process entries for content types
 for content_type in "${content_types[@]}"; do
-    echo "$0 : Processing content type: $content_type (${#content_types[@]} total)"
+    echo -e "\e[32m$0\e[0m : Processing content type: $content_type (${#content_types[@]} total)"
     download_entries_for_content_type "$content_type" &
     wait
     process_entries "$content_type" &
 done
 
 wait
-echo "$0 : Finished."
+echo -e "\e[32m$0\e[0m : Finished."
