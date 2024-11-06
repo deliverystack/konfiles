@@ -27,6 +27,8 @@ I have found Bash shell scripts to be efficient for prototyping, although jq syn
 
 The preamble of the script defines some variables, some of which should come from the environment or elsewhere, before ensuring that directories exist for the output files.
 
+- https://github.com/deliverystack/konfiles/blob/main/konfiles.bash
+
 ### Functions
 
 We have to define some functions before we can use them. The `download_entries_for_content_type()` function creates files for each entry in an individual content type.
