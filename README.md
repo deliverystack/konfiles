@@ -144,9 +144,402 @@ Data-driven front-end code, such as to generate navigation, needs to know what e
 
 - https://github.com/deliverystack/konfiles/blob/main/index.bash
 
+Individual entries look like this:
+
+``` json
+{
+  "entries": [
+    {
+      "file": "contact.json",
+      "title": "QSxoq0I0 mgTKI7YFrso"
+    },
+    {
+      "file": "about.json",
+      "title": "amDHIOpNYsrHirJr4ZYA"
+    },
+    {
+      "file": "home.json",
+      "title": "IQM0KHHuq7e2CZJ1 6U7"
+    },
+    {
+      "file": "services.json",
+      "title": "ZmYxtBAHJ7HCu5Y2fnVD"
+    }
+  ],
+  "children": [
+    {
+      "name": "files"
+    },
+    {
+      "name": "info"
+    },
+    {
+      "name": "products"
+    }
+  ]
+}
+
+```
+
 We can use another script that aggregates those index.json files. 
 
 - https://github.com/deliverystack/konfiles/blob/main/catindex.bash
 
+The consolidated data looks like this:
+
+``` json
+{
+  "entries": [
+    {
+      "file": "contact.json",
+      "title": "QSxoq0I0 mgTKI7YFrso"
+    },
+    {
+      "file": "about.json",
+      "title": "amDHIOpNYsrHirJr4ZYA"
+    },
+    {
+      "file": "home.json",
+      "title": "IQM0KHHuq7e2CZJ1 6U7"
+    },
+    {
+      "file": "services.json",
+      "title": "ZmYxtBAHJ7HCu5Y2fnVD"
+    }
+  ],
+  "children": [
+    {
+      "name": "files"
+    },
+    {
+      "name": "info"
+    },
+    {
+      "name": "products"
+    }
+  ],
+  "subdirectories": {
+    "files": {
+      "entries": [],
+      "children": [
+        {
+          "name": "content_types"
+        },
+        {
+          "name": "entries"
+        },
+        {
+          "name": "flattened_entries"
+        },
+        {
+          "name": "url_based_structure"
+        }
+      ],
+      "subdirectories": {
+        "content_types": {},
+        "entries": {
+          "entries": [
+            {
+              "file": "_simple.json",
+              "title": "/simple"
+            },
+            {
+              "file": "_simple_page.json",
+              "title": "/simple/page"
+            },
+            {
+              "file": "home.json",
+              "title": "Everything points to this item"
+            }
+          ],
+          "children": [
+            {
+              "name": "bannercomponent"
+            },
+            {
+              "name": "imagecollection"
+            },
+            {
+              "name": "imagecollectioncomponent"
+            },
+            {
+              "name": "rtecomponent"
+            },
+            {
+              "name": "rtetemplate"
+            },
+            {
+              "name": "simplepage"
+            }
+          ],
+          "subdirectories": {
+            "bannercomponent": {},
+            "imagecollection": {},
+            "imagecollectioncomponent": {},
+            "rtecomponent": {},
+            "rtetemplate": {},
+            "simplepage": {}
+          }
+        },
+        "flattened_entries": {
+          "entries": [],
+          "children": [
+            {
+              "name": "bannercomponent"
+            },
+            {
+              "name": "imagecollection"
+            },
+            {
+              "name": "imagecollectioncomponent"
+            },
+            {
+              "name": "rtecomponent"
+            },
+            {
+              "name": "rtetemplate"
+            },
+            {
+              "name": "simplepage"
+            }
+          ],
+          "subdirectories": {
+            "bannercomponent": {},
+            "imagecollection": {},
+            "imagecollectioncomponent": {},
+            "rtecomponent": {},
+            "rtetemplate": {},
+            "simplepage": {
+              "entries": [
+                {
+                  "file": "270a6b85-d95d-4863-96ed-6040188227d8.json",
+                  "title": "Everything points to this item"
+                },
+                {
+                  "file": "9d0f1c68-52c5-4942-85ef-75b27aa517c8.json",
+                  "title": "/simple/page"
+                },
+                {
+                  "file": "c045b184-4b09-4d45-a75a-a0f4f3a99b4d.json",
+                  "title": "/simple"
+                },
+                {
+                  "file": "home.json",
+                  "title": "Everything points to this item"
+                },
+                {
+                  "file": "simple.json",
+                  "title": "/simple"
+                }
+              ],
+              "children": [
+                {
+                  "name": "simple"
+                }
+              ],
+              "subdirectories": {
+                "simple": {
+                  "entries": [],
+                  "children": [
+                    {
+                      "name": "page"
+                    }
+                  ],
+                  "subdirectories": {
+                    "page": {
+                      "entries": [],
+                      "children": [
+                        {
+                          "name": "deeper"
+                        }
+                      ],
+                      "subdirectories": {
+                        "deeper": {
+                          "entries": [],
+                          "children": [
+                            {
+                              "name": "than"
+                            }
+                          ],
+                          "subdirectories": {
+                            "than": {
+                              "entries": [
+                                {
+                                  "file": "though.json",
+                                  "title": "/simple/page"
+                                }
+                              ],
+                              "children": []
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "url_based_structure": {
+          "entries": [
+            {
+              "file": "home.json",
+              "title": "Everything points to this item"
+            },
+            {
+              "file": "simple.json",
+              "title": "/simple"
+            }
+          ],
+          "children": [
+            {
+              "name": "simple"
+            }
+          ],
+          "subdirectories": {
+            "simple": {
+              "entries": [
+                {
+                  "file": "page.json",
+                  "title": "/simple/page"
+                }
+              ],
+              "children": []
+            }
+          }
+        }
+      }
+    },
+    "info": {
+      "entries": [
+        {
+          "file": "info1.json",
+          "title": "sZXZR3y5ChFa7z5z5boa"
+        },
+        {
+          "file": "info2.json",
+          "title": "o2oNG1in9nrIg5XlZ8i2"
+        },
+        {
+          "file": "info3.json",
+          "title": "am4i87Uit2f26yPHCKIo"
+        }
+      ],
+      "children": [
+        {
+          "name": "subinfo"
+        }
+      ],
+      "subdirectories": {
+        "subinfo": {
+          "entries": [
+            {
+              "file": "subinfo3.json",
+              "title": "JUvzBowcRqYsszweAOCo"
+            },
+            {
+              "file": "subinfo1.json",
+              "title": "GMfCHkIVQxnRpokiMZKj"
+            },
+            {
+              "file": "subinfo2.json",
+              "title": "zWxdp5FieKBZHq2Ty1Qp"
+            }
+          ],
+          "children": [
+            {
+              "name": "nested_subinfo"
+            }
+          ],
+          "subdirectories": {
+            "nested_subinfo": {
+              "entries": [
+                {
+                  "file": "nested2.json",
+                  "title": "yjms91ee4lI5KmJEitU8"
+                },
+                {
+                  "file": "nested3.json",
+                  "title": "gyUmrCEypCDkoybSJVid"
+                },
+                {
+                  "file": "nested1.json",
+                  "title": "pZ2q91sAHo4n W8YtKXM"
+                }
+              ],
+              "children": []
+            }
+          }
+        }
+      }
+    },
+    "products": {
+      "entries": [
+        {
+          "file": "furniture.json",
+          "title": "KAi6eh6hcJMQf2Uhli4Y"
+        },
+        {
+          "file": "electronics.json",
+          "title": "iFv9hnOlJBViJEidQVJo"
+        },
+        {
+          "file": "appliances.json",
+          "title": "SwuBZ3G3yJ249V h6heT"
+        },
+        {
+          "file": "books.json",
+          "title": "dATQCW3wrkGFcwwtIty9"
+        }
+      ],
+      "children": [
+        {
+          "name": "subdir1"
+        },
+        {
+          "name": "subdir2"
+        }
+      ],
+      "subdirectories": {
+        "subdir1": {
+          "entries": [
+            {
+              "file": "subcategory2.json",
+              "title": "XLlpWczG2VY7RDht7t95"
+            },
+            {
+              "file": "subcategory3.json",
+              "title": "LGyxzQr7F191FlhE3IKs"
+            },
+            {
+              "file": "subcategory1.json",
+              "title": "wWHV3onmjDaAq42j2wxZ"
+            }
+          ],
+          "children": []
+        },
+        "subdir2": {
+          "entries": [
+            {
+              "file": "subcategory6.json",
+              "title": "F7zG1JlsEGGGTKaCC10S"
+            },
+            {
+              "file": "subcategory4.json",
+              "title": "R2agl ojVDC5vECJaOy5"
+            },
+            {
+              "file": "subcategory5.json",
+              "title": "ejZN9wDo6SsbXw2QWyox"
+            }
+          ],
+          "children": []
+        }
+      }
+    }
+  }
+}
+```
 
 
