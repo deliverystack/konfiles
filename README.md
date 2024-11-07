@@ -138,3 +138,15 @@ The `process_entries()` function generates additional files from the raw `.json`
 - Stores the content type definitions.
 - Stores all entries as files.
 
+## Index Static JSON Files from Headless CMS
+
+Data-driven front-end code, such as to generate navigation, needs to know what entries exist. Frequently recursing a directory structure would be impractical, and anyway we’re using HTTP to access the data. After we generate the JSON files, we can run a script that generates index.json files in each subdirectory to contain metadata extracted from each of those files.
+
+- //TODO: link to index.bash
+
+We can use another script that aggregates those index.json files. 
+
+- //TODO: link to catindex.bash
+
+
+
